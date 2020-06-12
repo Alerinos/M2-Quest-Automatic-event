@@ -80,7 +80,7 @@ quest event begin
         end
         
         
-        when button or info begin
+        when button or info with pc.get_gm_level() >= 3 begin
             local timestmp = os.time(os.date("!*t"))
             
             say("Event name")
