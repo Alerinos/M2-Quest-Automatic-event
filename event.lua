@@ -6,7 +6,7 @@
 quest event begin
     state start begin
         -- Komunikat
-        when login begin
+        when login with pc.in_dungeon() == false begin
             local timestmp = os.time(os.date("!*t"))
            
             -- GM LEVEL
@@ -39,7 +39,7 @@ quest event begin
            
         end
         
-        when kill with not npc.is_pc() begin
+        when kill with not npc.is_pc() and pc.in_dungeon() == false begin
             local min = npc.get_level0() - 15
             local max = npc.get_level0() + 15
             local lvl = pc.get_level()
